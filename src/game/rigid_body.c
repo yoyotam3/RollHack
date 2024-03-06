@@ -450,7 +450,7 @@ void body_vs_surface_collision(struct RigidBody *body, struct Surface *tri, stru
         pos[0] = body->transform[3][0] - (tri->normal.x * 90.0f);
         pos[1] = body->transform[3][1] - (tri->normal.y * 90.0f);
         pos[2] = body->transform[3][2] - (tri->normal.z * 90.0f);
-        vertex_vs_tri_face(&pos, &triInfo, col);
+        vertex_vs_tri_face(pos, &triInfo, col);
     } else {
         vertices_vs_tri_face(sCurrentVertices, mesh->numVertices, &triInfo, col);
     }
@@ -942,7 +942,7 @@ static void render_collision_point(struct CollisionPoint *point) {
     Mat4 mtxf;
     Vec3f pos;
     vec3f_copy(pos, point->point);
-    vec3_mul_val(pos, WORLD_SCALE);
+    vec3_scale(pos, WORLD_SCALE);
     mtxf_align_terrain_normal(mtxf, point->normal, pos, 0);
     mtxf_to_mtx(mtx, mtxf);
     gSPMatrix(gDisplayListHead++, mtx, (G_MTX_MODELVIEW | G_MTX_PUSH));

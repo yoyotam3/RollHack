@@ -63,8 +63,8 @@ void bhv_marble_loop(void) {
 
     if (water_level > o->oPosY) {
         o->rigidBody->linearVel[1] += 5.0f;//buoyancy
-        vec3_mul_val(o->rigidBody->linearVel,0.94f);//drag
-        vec3_mul_val(o->rigidBody->angularVel,0.94f);
+        vec3_scale(o->rigidBody->linearVel,0.94f);//drag
+        vec3_scale(o->rigidBody->angularVel,0.94f);
         if (!underwater) {
             underwater = TRUE;
             if (o->rigidBody->linearVel[1] < -4.0f) {

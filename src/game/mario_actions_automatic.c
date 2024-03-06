@@ -854,6 +854,19 @@ s32 check_common_automatic_cancels(struct MarioState *m) {
 
     return FALSE;
 }
+s32 act_marble(struct MarioState *m) {
+    struct Object *marble = cur_obj_nearest_object_with_behavior(bhvPhysicsMarble);
+    set_mario_animation(m, MARIO_ANIM_START_HANDSTAND);
+    m->marioObj->header.gfx.animInfo.animFrame = 7;
+    perform_air_step(m, AIR_STEP_NONE);
+
+    if (marble) {
+        vec3f_copy(m->pos,&marble->oPosVec);
+        vec3f_copy(&m->marioObj->oPosVec,&marble->oPosVec);
+        m->marioObj->header.gfx.throwMatrix = marble->transform;
+    }
+    return FALSE;
+}
 
 s32 mario_execute_automatic_action(struct MarioState *m) {
     s32 cancel = FALSE;

@@ -24,7 +24,7 @@
 #include "sound_init.h"
 #include "rumble_init.h"
 #include "config.h"
-
+#include "rigid_body.h"
 u8  sDelayInvincTimer;
 s16 sInvulnerable;
 u32 interact_coin          (struct MarioState *m, u32 interactType, struct Object *obj);
@@ -207,8 +207,18 @@ u32 determine_interaction(struct MarioState *m, struct Object *obj) {
         } else if (m->forwardVel <= -26.0f || 26.0f <= m->forwardVel) {
             interaction = INT_FAST_ATTACK_OR_SHELL;
         }
+        
     }
-
+    if (action == ACT_MARBLE) {
+        interaction = INT_NONE;
+        struct Object *marble = cur_obj_nearest_object_with_behavior(bhvPhysicsMarble);
+        if (marble) {
+            f32 speed = vec3_mag(marble->rigidBody->linearVel);
+            if (speed > 40.0f) {
+                interaction = INT_KICK;
+            }
+        }
+    }
     // Prior to this, the interaction type could be overwritten. This requires, however,
     // that the interaction not be set prior. This specifically overrides turning a ground
     // pound into just a bounce.

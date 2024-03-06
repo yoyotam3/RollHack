@@ -1,0 +1,12 @@
+extern Lights1 testlevel_f3dlite_material_lights;
+extern Lights1 testlevel_f3dlite_material_001_lights;
+extern u8 testlevel_TextureGround_ci4[];
+extern u8 testlevel_TextureGround_pal_rgba16[];
+extern Vtx testlevel_Cube_mesh_vtx_0[46];
+extern Gfx testlevel_Cube_mesh_tri_0[];
+extern Vtx testlevel_Cube_mesh_vtx_1[4];
+extern Gfx testlevel_Cube_mesh_tri_1[];
+extern Gfx mat_testlevel_f3dlite_material[];
+extern Gfx mat_revert_testlevel_f3dlite_material[];
+extern Gfx mat_testlevel_f3dlite_material_001[];
+extern Gfx testlevel_Cube_mesh[];

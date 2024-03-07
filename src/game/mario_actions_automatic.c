@@ -848,6 +848,9 @@ s32 act_tornado_twirling(struct MarioState *m) {
 }
 
 s32 check_common_automatic_cancels(struct MarioState *m) {
+        if (m->action == ACT_MARBLE) {
+        return FALSE;
+    }
     if (m->pos[1] < m->waterLevel - 100) {
         return set_water_plunge_action(m);
     }
@@ -896,6 +899,7 @@ s32 mario_execute_automatic_action(struct MarioState *m) {
         case ACT_GRABBED:                cancel = act_grabbed(m);                break;
         case ACT_IN_CANNON:              cancel = act_in_cannon(m);              break;
         case ACT_TORNADO_TWIRLING:       cancel = act_tornado_twirling(m);       break;
+        case ACT_MARBLE:                 cancel = act_marble(m);                 break;
     }
     /* clang-format on */
 

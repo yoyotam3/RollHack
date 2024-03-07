@@ -6091,3 +6091,12 @@ const BehaviorScript bhvMarbleCannon[] = {
         CALL_NATIVE(bhv_marble_cannon_loop),
     END_LOOP(),
 };
+const BehaviorScript bhvMarbleTrigger[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+        SET_HITBOX_WITH_OFFSET(100,100,0),
+    CALL_NATIVE(bhv_marble_trigger_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_marble_trigger_loop),
+    END_LOOP(),
+};

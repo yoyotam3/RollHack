@@ -32,8 +32,7 @@
 #include "save_file.h"
 #include "sound_init.h"
 #include "rumble_init.h"
-
-
+#include "rigid_body.h"
 /**************************************************
  *                    ANIMATIONS                  *
  **************************************************/
@@ -1791,7 +1790,7 @@ s32 execute_mario_action(UNUSED struct Object *obj) {
 #endif
 if ((save_file_get_flags() & SAVE_FLAG_MARBLE)) {
             struct Object *marble = cur_obj_nearest_object_with_behavior(bhvPhysicsMarble);
-            if (!marble && !(gMarioState->riddenObj != NULL && obj_has_behavior(gMarioState->riddenObj, bhvFunkyShell))) {
+            if (!marble) {
                 set_mario_action(gMarioState,ACT_MARBLE,0);
                 gMarioState->pos[1] += 100.0f;
                 gMarioObject->oPosY += 100.0f;

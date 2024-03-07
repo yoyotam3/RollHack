@@ -578,3 +578,5 @@ extern struct WaterDropletParams gShallowWaterWaveDropletParams;
 #endif // BEHAVIOR_ACTIONS_H
 void bhv_marble_init(void);
 void bhv_marble_loop(void);
+void bhv_marble_trigger_init(void);
+void bhv_marble_trigger_loop(void);

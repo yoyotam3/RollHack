@@ -75,16 +75,19 @@ void bhv_marble_loop(void) {
         underwater = FALSE;
     }
 
-    //break upon contact with lava / quicksand
-    f32 fheight = find_floor(o->oPosX,o->oPosY,o->oPosZ, &floor);
-    if (floor && fheight+120.0f > o->oPosY && (floor->type == SURFACE_BURNING || floor->type == SURFACE_INSTANT_QUICKSAND || floor->type == SURFACE_DEATH_PLANE)) {
-        change_ability(ABILITY_DEFAULT);
-    }
+    // //break upon contact with lava / quicksand
+    // f32 fheight = find_floor(o->oPosX,o->oPosY,o->oPosZ, &floor);
+    // if (floor && fheight+120.0f > o->oPosY && (floor->type == SURFACE_BURNING || floor->type == SURFACE_INSTANT_QUICKSAND || floor->type == SURFACE_DEATH_PLANE)) {
+    //     change_ability(ABILITY_DEFAULT);
+    // }
 
 
     vec3f_copy(&gMarioObject->oPosVec,&o->oPosVec);
     vec3f_copy(gMarioState->pos,&o->oPosVec);
-    vec3f_copy(gMarioState->vel,&o->rigidBody->linearVel);
+    //vec3f_copy(gMarioState->vel,&o->rigidBody->linearVel);
+    gMarioState->vel[0] = o->rigidBody->linearVel[0];
+    gMarioState->vel[1] = o->rigidBody->linearVel[1];
+    gMarioState->vel[2] = o->rigidBody->linearVel[2];
 
     //obj_set_hitbox(o, &sMarbleHitbox);
     //o->oInteractStatus = 0;

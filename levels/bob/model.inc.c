@@ -1,10 +1,4 @@
-Lights1 bob_dl_f3dlite_material_lights = gdSPDefLights1(
-	0x7F, 0x7F, 0x7F,
-	0xFF, 0xFF, 0xFF, 0x49, 0x49, 0x49);
 
-Lights1 bob_dl_f3dlite_material_001_lights = gdSPDefLights1(
-	0x44, 0x42, 0x7F,
-	0x8D, 0x8A, 0xFF, 0x49, 0x49, 0x49);
 
 Gfx bob_dl_TextureGround_ci4_aligner[] = {gsSPEndDisplayList()};
 u8 bob_dl_TextureGround_ci4[] = {
@@ -134,7 +128,8 @@ Gfx mat_bob_dl_f3dlite_material[] = {
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
 	gsDPSetTextureLUT(G_TT_RGBA16),
 	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsSPSetLights1(bob_dl_f3dlite_material_lights),
+    gsSPLightColor(LIGHT_1, 0xffffffff),
+    gsSPLightColor(LIGHT_2, 0x7f7f7fff),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, bob_dl_TextureGround_pal_rgba16),
 	gsDPSetTile(0, 0, 0, 256, 5, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
 	gsDPLoadTLUTCmd(5, 5),
@@ -156,7 +151,8 @@ Gfx mat_bob_dl_f3dlite_material_001[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
 	gsSPTexture(65535, 65535, 0, 0, 1),
-	gsSPSetLights1(bob_dl_f3dlite_material_001_lights),
+    gsSPLightColor(LIGHT_1, 0x8d8affff),
+    gsSPLightColor(LIGHT_2, 0x44427fff),
 	gsSPEndDisplayList(),
 };
 

@@ -25,8 +25,3 @@
 #include "levels/bob/seesaw_platform/collision.inc.c"
 #include "levels/bob/grate_door/collision.inc.c"
 #include "levels/bob/areas/1/trajectory.inc.c"
-
-#include "levels/bob/leveldata.inc.c"
-
-#include "levels/bob/testlevel/collision.inc.c"
-#include "levels/bob/testlevel/model.inc.c"

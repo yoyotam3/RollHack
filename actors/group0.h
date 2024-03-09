@@ -331,8 +331,4 @@ extern const Gfx white_particle_small_dl_end[];
 extern const Gfx white_particle_small_dl[];
 extern const Gfx white_particle_small_unused_dl[];
 
-#include "MODEL_MARBLE/geo_header.h"
-
-#include "MODEL_MARBLE/header.h"
-
 #endif

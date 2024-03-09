@@ -13,7 +13,7 @@ void bhv_marble_trigger_init(void) {
     obj_set_hitbox(o, &MarbleTriggerHitbox);
 }
 void bhv_marble_trigger_loop(void) {
-    if (obj_check_if_collided_with_object()) {
+    if (obj_check_if_collided_with_object(o, gMarioObject)) {
         save_file_set_flags(SAVE_FLAG_MARBLE);
         print_text(20,20,"hi");
     }
